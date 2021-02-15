@@ -33,18 +33,21 @@ async function cmdHandler(m) {
         let isUpdating = !!dom.window.document.querySelector(".fa-spinner");
         let lastChecked = dom.window.document.querySelector(".timeago")?.title;
 
-        /** @type {{ [x: string]: number }} */
-        let skills = Object.fromEntries(
-            [...dom.window.document.querySelectorAll(".skillsList li")].map(
-                e => [e.querySelector(".skillLabel").innerText, +e.querySelector(".skillValue").innerText]
-            )
+        /** @type {[string, number][]} */
+        let skills = [...dom.window.document.querySelectorAll(".skillsList li")].map(
+            e => [e.querySelector(".skillLabel").innerText, +e.querySelector(".skillValue").innerText]
         );
 
+        let maxPoint = Math.max(1000, Math.max(skills.map(x => x[1])));
+
+        /** @type {{ [x: string]: number }} */
+        let so = Object.fromEntries(skills.map(x => [x[0], x[1] / maxPoint]));
+
         let chart = radar(
-            Object.fromEntries(Object.keys(skills).map(x => [x, x])),
+            Object.fromEntries(skills.map(x => [x[0], x[0] + ": " + x[1]])),
             [{
                 color: '#edc951',
-                ...skills
+                ...so
             }],
             {
                 size: 1000
