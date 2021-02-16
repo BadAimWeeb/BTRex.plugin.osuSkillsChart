@@ -41,7 +41,7 @@ async function cmdHandler(m) {
             ]
         );
 
-        let maxPoint = Math.max(1000, Math.max(skills.map(x => x[1])));
+        let maxPoint = Math.max(1000, Math.max(...skills.map(x => x[1])));
 
         /** @type {{ [x: string]: number }} */
         let so = Object.fromEntries(skills.map(x => [x[0], x[1] / maxPoint]));
