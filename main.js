@@ -35,7 +35,10 @@ async function cmdHandler(m) {
 
         /** @type {[string, number][]} */
         let skills = [...dom.window.document.querySelectorAll(".skillsList li")].map(
-            e => [e.querySelector(".skillLabel").innerText, +e.querySelector(".skillValue").innerText]
+            e => [
+                (e.querySelector(".skillLabel a") ?? e.querySelector(".skillLabel")).innerHTML, 
+                +e.querySelector(".skillValue").innerHTML
+            ]
         );
 
         let maxPoint = Math.max(1000, Math.max(skills.map(x => x[1])));
