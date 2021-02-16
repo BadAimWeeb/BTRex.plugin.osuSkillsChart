@@ -34,12 +34,14 @@ async function cmdHandler(m) {
         let lastChecked = dom.window.document.querySelector(".timeago")?.title;
 
         /** @type {[string, number][]} */
-        let skills = [...dom.window.document.querySelectorAll(".skillsList li")].map(
-            e => [
-                (e.querySelector(".skillLabel a") ?? e.querySelector(".skillLabel")).innerHTML,
-                +e.querySelector(".skillValue").innerHTML
-            ]
-        );
+        let skills = [...dom.window.document.querySelectorAll(".skillsList li .skillLabel a")]
+            .map(x => x.parentNode.parentNode)
+            .map(
+                e => [
+                    e.querySelector(".skillLabel a").innerHTML,
+                    +e.querySelector(".skillValue").innerHTML
+                ]
+            );
 
         let maxPoint = Math.max(1000, Math.max(...skills.map(x => x[1])));
 
