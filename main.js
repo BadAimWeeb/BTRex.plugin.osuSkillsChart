@@ -18,7 +18,7 @@ async function cmdHandler(m) {
         }
     }
 
-    let fURL = `https://osuskills.com/user/${encodeURIComponent(username)}`;
+    let fURL = `http://osuskills.com/user/${encodeURIComponent(username)}`;
 
     let hRequest = await fetch(fURL);
     /** @type {string} */
