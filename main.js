@@ -57,7 +57,7 @@ async function cmdHandler(m) {
         );
 
         let svg = `
-<svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+<svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="-100 0 1200 1000" width="1200" height="1000">
     <style>
         .axis {
             stroke-width: 2;
