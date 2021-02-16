@@ -49,11 +49,17 @@ async function cmdHandler(m) {
         let chart = radar(
             Object.fromEntries(skills.map(x => [x[0], x[0] + ": " + x[1]])),
             [{
-                color: '#edc951',
                 ...so
             }],
             {
                 size: 1000
+            },
+            {
+                captionProps: () => ({
+                    className: 'caption',
+                    textAnchor: 'middle', fontSize: 20,
+                    fontFamily: 'sans-serif'
+                })
             }
         );
 
@@ -61,13 +67,19 @@ async function cmdHandler(m) {
 <svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
     <style>
         .axis {
-            stroke-width: .2;
+            stroke-width: 2;
+            color: green;
         }
         .scale {
-            stroke-width: .2;
+            stroke-width: 2;
+            color: green;
         }
         .shape {
             fill-opacity: .7;
+            color: '#edc951';
+        }
+        .caption {
+            color: green;
         }
     </style>
     ${vds(chart)}
