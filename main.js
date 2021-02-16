@@ -57,7 +57,7 @@ async function cmdHandler(m) {
         );
 
         let svg = `
-<svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="-100 0 1200 1000" width="1200" height="1000">
+<svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="-150 0 1300 1000" width="1300" height="1000">
     <style>
         .axis {
             stroke-width: 2;
@@ -77,7 +77,7 @@ async function cmdHandler(m) {
             fill: #000;
             color: green;
             font-weight: normal;
-            text-shadow: 10px 10px 0 #000;
+            text-shadow: 10px 10px 0 #fff;
             font-size: 42px;
         }
     </style>
@@ -85,7 +85,7 @@ async function cmdHandler(m) {
 </svg>
 `;
 
-        let png = await sharp(Buffer.from(svg, "utf8")).resize(1000, 1000).toBuffer();
+        let png = await sharp(Buffer.from(svg, "utf8")).toBuffer();
 
         let lcString = "";
         if (lastChecked) {
