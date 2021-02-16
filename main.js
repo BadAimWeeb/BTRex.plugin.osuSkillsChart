@@ -3,7 +3,7 @@ let jsdom = await require("jsdom");
 const JSDOM = jsdom.JSDOM;
 let radar = await require("svg-radar-chart");
 const vds = await require("virtual-dom-stringify");
-let svg2png = await require("svg2png");
+let sharp = await require("sharp");
 
 async function cmdHandler(m) {
     /** @type {string} */
@@ -71,7 +71,7 @@ async function cmdHandler(m) {
 </svg>
 `;
 
-        let png = await svg2png(Buffer.from(svg, "utf8"));
+        let png = await sharp(Buffer.from(svg, "utf8")).resize(1000, 1000).toBuffer();
 
         let lcString = "";
         if (lastChecked) {

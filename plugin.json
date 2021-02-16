@@ -26,6 +26,6 @@
         "svg-radar-chart": "*",
         "virtual-dom-stringify": "*",
         "jsdom": "*",
-        "svg2png": "*"
+        "sharp": "*"
     }
 }
