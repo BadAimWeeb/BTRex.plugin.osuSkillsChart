@@ -99,7 +99,13 @@ async function cmdHandler(m) {
             } else if (Date.now() - lcDate.getTime() <= 86400000) {
                 lcString = `${Math.round((Date.now() - lcDate.getTime()) / 3600000)} hours ago`;
             } else {
-                lcString = `${lcDate.getUTCDate()}/${lcDate.getUTCMonth() + 1}/${lcDate.getUTCFullYear()} ${lcDate.getUTCHours()}:${lcDate.getUTCMinutes()}:${lcDate.getUTCSeconds} UTC`
+                lcString = `${lcDate.getUTCDate().toString().padStart(2, "0")
+                    }/${(lcDate.getUTCMonth() + 1).toString().padStart(2, "0")
+                    }/${lcDate.getUTCFullYear()
+                    } ${lcDate.getUTCHours().toString().padStart(2, "0")
+                    }:${lcDate.getUTCMinutes().toString().padStart(2, "0")
+                    }:${lcDate.getUTCSeconds().toString().padStart(2, "0")
+                    } UTC`
             }
         } else {
             lcString = "never";
