@@ -36,7 +36,7 @@ async function cmdHandler(m) {
         /** @type {[string, number][]} */
         let skills = [...dom.window.document.querySelectorAll(".skillsList li")].map(
             e => [
-                (e.querySelector(".skillLabel a") ?? e.querySelector(".skillLabel")).innerHTML, 
+                (e.querySelector(".skillLabel a") ?? e.querySelector(".skillLabel")).innerHTML,
                 +e.querySelector(".skillValue").innerHTML
             ]
         );
@@ -53,13 +53,6 @@ async function cmdHandler(m) {
             }],
             {
                 size: 1000
-            },
-            {
-                captionProps: () => ({
-                    className: 'caption',
-                    textAnchor: 'middle', fontSize: 20,
-                    fontFamily: 'sans-serif'
-                })
             }
         );
 
@@ -68,18 +61,24 @@ async function cmdHandler(m) {
     <style>
         .axis {
             stroke-width: 2;
-            color: green;
+            stroke: #888;
         }
         .scale {
             stroke-width: 2;
-            color: green;
+            stroke: #aaa;
         }
         .shape {
             fill-opacity: .7;
-            color: '#edc951';
+            fill: #edc951;
+            stroke-width: 2;
+            stroke: #555;
         }
         .caption {
+            fill: #333;
             color: green;
+            font-weight: normal;
+            text-shadow: 1px 1px 0 #fff;
+            font-size: 36px;
         }
     </style>
     ${vds(chart)}
