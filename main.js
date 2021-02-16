@@ -74,11 +74,11 @@ async function cmdHandler(m) {
             stroke: #555;
         }
         .caption {
-            fill: #333;
+            fill: #000;
             color: green;
             font-weight: normal;
-            text-shadow: 1px 1px 0 #fff;
-            font-size: 36px;
+            text-shadow: 10px 10px 0 #000;
+            font-size: 42px;
         }
     </style>
     ${vds(chart)}
